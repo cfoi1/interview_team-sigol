@@ -6,16 +6,17 @@
 <title>승리의 이장님, 괴산군 사리면 대기마을 김용자 이장</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F4EFE6;
-    --ink: #1C1814;
-    --rust: #B8400A;
-    --sand: #CFC0A5;
-    --warm-white: #FAF7F2;
-    --muted: #8A7F72;
-    --sage: #4A5E47;
+    --yellow: #f8ff71;
+    --brown: #3c1e00;
+    --orange: #ff5500;
+    --brown-mid: #6b3a10;
+    --brown-light: #a0662a;
+    --cream: #fdf9ec;
+    --yellow-dim: #d4db3a;
+    --paper: #faf6e8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,347 +25,477 @@
   body {
     font-family: 'Noto Sans KR', sans-serif;
     background: var(--cream);
-    color: var(--ink);
-    max-width: 900px;
+    color: var(--brown);
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 0 120px;
+    padding-bottom: 120px;
   }
 
-  /* ── HEADER ── */
-  .header {
-    padding: 72px 64px 0;
-  }
-
-  .kicker {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-
-  .kicker-tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--rust);
-  }
-
-  .kicker-line {
-    flex: 1;
-    height: 1px;
-    background: var(--sand);
-  }
-
-  .kicker-series {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
-  h1 {
-    font-family: 'Noto Serif KR', serif;
-    font-weight: 900;
-    font-size: clamp(38px, 6vw, 64px);
-    line-height: 1.12;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-
-  h1 em {
-    font-style: italic;
-    font-family: 'DM Serif Display', serif;
-    color: var(--rust);
-  }
-
-  .byline {
-    font-size: 13px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.7;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .byline strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* ── IMAGES ── */
-  .image-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 3px;
-    margin: 3px 0;
-  }
-
-  .img-block {
-    background: var(--sand);
+  /* ── SITE BANNER ── */
+  .site-banner {
+    width: 100%;
+    background: var(--brown);
     overflow: hidden;
     position: relative;
   }
 
-  .img-block img {
-    width: 100%; height: 100%;
+  .site-banner img {
+    width: 100%;
+    height: 280px;
     object-fit: cover;
     display: block;
+    opacity: 0.85;
+    mix-blend-mode: luminosity;
   }
 
-  .img-block.main { grid-row: span 2; height: 480px; }
-  .img-block.side { height: 238px; }
+  .site-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, var(--brown) 100%);
+  }
 
-  .img-placeholder {
-    width: 100%; height: 100%;
-    min-height: 200px;
+  /* ── SERIES RIBBON ── */
+  .series-ribbon {
+    background: var(--yellow);
+    padding: 10px 32px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 16px;
+    border-bottom: 3px solid var(--brown);
+  }
+
+  .series-tag {
+    font-family: 'Black Han Sans', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.2em;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  .series-line {
+    flex: 1;
+    height: 1px;
+    background: var(--brown);
+    opacity: 0.3;
+  }
+
+  .series-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brown-mid);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--brown);
+    padding: 48px 56px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '🕵️';
+    position: absolute;
+    right: 40px;
+    top: 32px;
+    font-size: 80px;
+    opacity: 0.12;
+    transform: rotate(-10deg);
+  }
+
+  .header-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--orange);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 4px;
   }
 
-  .img-caption {
-    padding: 10px 64px;
-    font-size: 12px;
-    color: var(--muted);
+  h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+
+  h1 span.highlight {
+    color: var(--orange);
+    position: relative;
+    display: inline-block;
+  }
+
+  .byline {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(248,255,113,0.2);
+  }
+
+  .byline-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .byline-desc {
+    font-size: 13px;
     font-weight: 300;
-    font-style: italic;
+    color: rgba(248,255,113,0.65);
+    line-height: 1.75;
   }
 
-  /* ── OPENING PULL ── */
+  /* ── OPENING QUOTE ── */
   .opening {
-    padding: 64px 64px 48px;
-    border-bottom: 1px solid var(--sand);
+    background: var(--yellow);
+    padding: 48px 56px;
+    border-bottom: 4px solid var(--brown);
+    position: relative;
+  }
+
+  .opening::before {
+    content: '"';
+    font-family: 'Noto Serif KR', serif;
+    font-size: 120px;
+    color: var(--brown);
+    opacity: 0.1;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    line-height: 1;
   }
 
   .opening blockquote {
     font-family: 'Noto Serif KR', serif;
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 700;
-    line-height: 1.6;
-    color: var(--ink);
-    padding-left: 24px;
-    border-left: 3px solid var(--rust);
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 900;
+    line-height: 1.55;
+    color: var(--brown);
+    position: relative;
+    z-index: 1;
   }
 
   .opening .context {
-    margin-top: 18px;
-    padding-left: 27px;
+    margin-top: 16px;
     font-size: 14px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.7;
+    color: var(--brown-mid);
+    font-weight: 400;
+    font-style: italic;
   }
 
   /* ── BODY ── */
   .body {
-    padding: 0 64px;
+    padding: 0 56px;
+    background: var(--paper);
   }
 
-  /* section */
   .sec {
     padding: 56px 0;
-    border-bottom: 1px solid var(--sand);
+    border-bottom: 1px solid rgba(60,30,0,0.12);
   }
 
   .sec:last-child { border-bottom: none; }
 
   .sec-head {
     display: flex;
-    align-items: baseline;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 0;
     margin-bottom: 28px;
+    position: relative;
   }
 
   .sec-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 36px;
-    color: var(--sand);
-    line-height: 1;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 72px;
+    color: var(--yellow);
+    line-height: 0.85;
     flex-shrink: 0;
+    margin-right: 16px;
+    -webkit-text-stroke: 2px var(--brown);
+    position: relative;
+    top: -4px;
   }
 
   .sec-head h2 {
     font-family: 'Noto Serif KR', serif;
     font-size: 20px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.35;
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1.4;
+    padding-top: 8px;
   }
 
   p.body-text {
-    font-size: 16px;
-    line-height: 1.9;
-    color: #3A3530;
+    font-size: 15.5px;
+    line-height: 2;
+    color: #3c1e00cc;
     font-weight: 300;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   p.body-text:last-child { margin-bottom: 0; }
 
-  /* quotes */
+  /* inline quote */
   .q-inline {
     margin: 24px 0;
-    padding: 20px 24px;
-    background: var(--warm-white);
-    border-left: 2px solid var(--rust);
+    padding: 18px 20px 18px 24px;
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
     font-family: 'Noto Serif KR', serif;
     font-size: 15px;
     font-weight: 600;
-    line-height: 1.7;
-    color: var(--ink);
+    line-height: 1.75;
+    color: var(--brown);
+    border-radius: 0 4px 4px 0;
   }
 
+  /* pull quote */
   .q-pull {
-    margin: 32px -20px;
-    padding: 30px 44px;
-    background: var(--ink);
-    color: var(--cream);
+    margin: 36px -20px;
+    padding: 32px 48px 32px 44px;
+    background: var(--brown);
+    color: var(--yellow);
     font-family: 'Noto Serif KR', serif;
-    font-size: 18px;
+    font-size: clamp(15px, 2.2vw, 19px);
     font-weight: 700;
-    line-height: 1.65;
+    line-height: 1.7;
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
   }
 
   .q-pull::before {
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--rust);
+    width: 6px;
+    background: var(--orange);
   }
 
-  /* mid image */
+  /* ── MID IMAGE ── */
   .img-mid {
     margin: 32px -20px;
-    height: 340px;
-    background: var(--sand);
+    height: 320px;
+    background: var(--brown);
     overflow: hidden;
+    position: relative;
   }
 
   .img-mid img {
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
   }
 
-  .img-mid .img-placeholder { min-height: 340px; }
+  /* ── VOTE COUNTER (visual element) ── */
+  .highlight-box {
+    margin: 28px 0;
+    padding: 24px 28px;
+    background: var(--yellow);
+    border: 2px solid var(--brown);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 
-  /* ── FOOTER ── */
+  .highlight-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .highlight-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.6;
+  }
+
+  .highlight-text strong {
+    display: block;
+    font-size: 22px;
+    color: var(--orange);
+    font-weight: 900;
+    margin-bottom: 2px;
+  }
+
+  /* ── DAYS BADGE ── */
+  .days-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: var(--orange);
+    color: #fff;
+    padding: 4px 14px 4px 10px;
+    font-family: 'Black Han Sans', sans-serif;
+    margin: 4px 0;
+    position: relative;
+  }
+
+  .days-badge .num {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  .days-badge .unit {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER CTA ── */
   .article-footer {
-    margin: 0 64px;
+    margin: 0 56px;
     padding: 40px 0 0;
-    border-top: 1px solid var(--sand);
+    border-top: 3px solid var(--brown);
   }
 
   .campaign-cta {
-    display: flex;
+    background: var(--brown);
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
-    padding: 28px 32px;
-    background: var(--ink);
-    color: var(--cream);
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .campaign-cta .cta-text {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 16px;
+  .campaign-cta::after {
+    content: '⚾';
+    position: absolute;
+    right: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 64px;
+    opacity: 0.06;
+  }
+
+  .cta-label {
+    font-size: 10px;
     font-weight: 700;
-    line-height: 1.4;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
   }
 
-  .campaign-cta .cta-btn {
+  .cta-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1.5;
+  }
+
+  .cta-btn {
     white-space: nowrap;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+    background: var(--yellow);
+    text-decoration: none;
+    padding: 14px 24px;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .cta-btn:hover {
+    background: var(--orange);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ── BACK NAV ── */
+  .back-nav {
+    padding: 20px 56px;
+    background: var(--yellow);
+    border-bottom: 2px solid var(--brown);
+  }
+
+  .back-nav a {
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--rust);
+    letter-spacing: 0.12em;
     text-decoration: none;
-    border: 1px solid var(--rust);
-    padding: 10px 20px;
-    transition: background 0.2s, color 0.2s;
+    color: var(--brown);
+    text-transform: uppercase;
   }
 
-  .campaign-cta .cta-btn:hover {
-    background: var(--rust);
-    color: var(--cream);
-  }
+  .back-nav a:hover { color: var(--orange); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    .header, .opening, .body, .article-footer { padding-left: 24px; padding-right: 24px; }
-    .img-caption { padding-left: 24px; padding-right: 24px; }
-    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 28px; font-size: 16px; }
-    .img-mid { margin-left: -24px; margin-right: -24px; }
-    .image-grid { grid-template-columns: 1fr; }
-    .img-block.main { grid-row: span 1; height: 280px; }
-    .img-block.side { height: 200px; }
-    h1 { font-size: 34px; }
-    .campaign-cta { flex-direction: column; align-items: flex-start; }
-  }
-
-  /* ── FADE IN ── */
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .header  { animation: fadeUp 0.5s ease both; }
-  .opening { animation: fadeUp 0.5s ease 0.1s both; }
-  .body    { animation: fadeUp 0.5s ease 0.2s both; }
+  .header  { animation: fadeUp 0.55s ease both; }
+  .opening { animation: fadeUp 0.55s ease 0.1s both; }
+  .body    { animation: fadeUp 0.55s ease 0.2s both; }
 
-  /* ── SITE HEADER IMAGE ── */
-  .site-header-img {
-    width: 100%;
-    max-width: 900px;
-    height: 320px;
-    overflow: hidden;
-    margin-bottom: 0;
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .header, .opening, .body, .article-footer, .back-nav {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 32px; }
+    .img-mid { margin-left: -24px; margin-right: -24px; }
+    h1 { font-size: 38px; }
+    .site-banner img { height: 200px; }
+    .sec-num { font-size: 54px; }
+    .campaign-cta { grid-template-columns: 1fr; }
+    .campaign-cta::after { display: none; }
   }
-  .site-header-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 700px) {
-    .site-header-img { height: 200px; }
-  }
-
 </style>
 </head>
 <body>
 
-<div class="site-header-img">
+<!-- SITE BANNER -->
+<div class="site-banner">
   <img src="https://lh3.googleusercontent.com/d/1i_cDoVKwl7kWfkltxJYZL0o3pz2ChKwL" alt="아무리 덮어봐라, 우리가 밝혀내지">
 </div>
 
-<div class="header">
-  <div class="kicker">
-    <span class="kicker-tag">승리의 이장 · 인터뷰 01</span>
-    <span class="kicker-line"></span>
-    <span class="kicker-series">아무리 덮어봐라, 우리가 밝혀내지</span>
-  </div>
-  <h1>보고서 한 장이<br><em>다 바꿨다</em></h1>
-  <p class="byline">
-    <strong>김용자 이장</strong> · 충북 괴산군 사리면 대기마을<br>
-    시민운동가 출신 깨 농사꾼. 2020년부터 2년 반 동안 싸워서<br>마을에 들어오려던 산업폐기물 매립장을 막아냈다.
-  </p>
+<!-- SERIES RIBBON -->
+<div class="series-ribbon">
+  <span class="series-tag">아무리 덮어봐라, 우리가 파헤치지</span>
+  <span class="series-line"></span>
+  <span class="series-num">인터뷰 01 / 03</span>
 </div>
 
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">승리의 이장 · 충북 괴산군 사리면 대기마을</div>
+  <h1>보고서 한 장이<br><span class="highlight">다 바꿨다</span></h1>
+  <div class="byline">
+    <div class="byline-name">김용자 이장</div>
+    <div class="byline-desc">
+      시민운동가 출신 깨 농사꾼.<br>
+      2020년부터 2년 반 동안 싸워서 마을에 들어오려던 산업폐기물 매립장을 막아냈다.
+    </div>
+  </div>
+</div>
 
+<!-- OPENING -->
 <div class="opening">
   <blockquote>"군수님은 무슨 님이에요, 우리는 '야 이 xx야' 이러는데."</blockquote>
   <p class="context">인터뷰를 시작하자마자 분위기가 잡혔다. 이분, 만만치 않다.</p>
 </div>
 
+<!-- BODY -->
 <div class="body">
 
   <div class="sec">
@@ -436,8 +567,18 @@
     <p class="body-text">또 하나는 동의서 관리. 토지 소유자 명단을 만들어 빨간 펜, 파란 펜으로 표시를 해나갔다.</p>
     <div class="q-inline">"찬성할 것 같은 사람, 설득해야 할 사람 다 각자 정해서 전화를 다 돌렸어요. 잘 모르고 찬성한 사람은 직접 같이 찾아가서 동의서를 도로 가져왔어요. 갖고 와서 찢어버리고."</div>
     <p class="body-text">마침 지방선거가 1년 남은 시점이었다. 9개 마을 주민들이 매일 아침 돌아가면서 군청 앞에서 1인 시위를 벌였다.</p>
+
+    <div class="highlight-box">
+      <span class="highlight-icon">📊</span>
+      <div class="highlight-text">
+        <strong>500~1,000표</strong>
+        괴산군수 선거 평균 표 차이. 대책위 300명이 각자 두 표만 끌어와도 600표, 승산이 있었다.
+      </div>
+    </div>
+
     <div class="q-pull">"괴산군수 선거를 하면 보통 표 차이가 500~1000표예요. 이정도면 표 계산이 가능하죠. 우리 대책위에 동의하는 사람이 300명 정도 나오고, 한 사람이 한두 표씩만 끌고 와도 600표잖아요. 승산이 있는 거예요."</div>
-    <p class="body-text">1인 시위를 시작한 지 248일 만에 군수가 낙선했다.</p>
+
+    <p class="body-text">1인 시위를 시작한 지 <span class="days-badge"><span class="num">248</span><span class="unit">일 만에</span></span> 군수가 낙선했다.</p>
   </div>
 
   <div class="sec">
@@ -468,10 +609,14 @@
 
 </div><!-- /body -->
 
+<!-- FOOTER CTA -->
 <div class="article-footer">
   <div class="campaign-cta">
-    <span class="cta-text">난개발과 환경오염을 막기 위한 주민 알권리 조례,<br>지금 당장 필요합니다!</span>
-    <a href="https://cfoi1.github.io/weneedlaw" class="cta-btn">내용 살펴보기 →</a>
+    <div>
+      <div class="cta-label">지금 바로 서명하기</div>
+      <div class="cta-text">난개발과 환경오염을 막기 위한<br>주민 알권리 법안, 지금 당장 필요합니다!</div>
+    </div>
+    <a href="https://team-sigol.kr/" class="cta-btn">서명하러 가기 →</a>
   </div>
 </div>
 
