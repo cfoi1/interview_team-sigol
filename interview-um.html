@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>끈질긴 전략가, 엄성자 실장님</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F0EDE8;
+    --ink: #1A1714;
+    --blue: #1C3A5C;
+    --steel: #2E5070;
+    --sand: #C8C0B4;
+    --warm-white: #FAF8F4;
+    --muted: #877E74;
+    --accent: #C4440A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 0 120px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 72px 64px 0;
+  }
+
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .kicker-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  .kicker-line {
+    flex: 1;
+    height: 1px;
+    background: var(--sand);
+  }
+
+  .kicker-series {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-family: 'DM Serif Display', serif;
+    color: var(--blue);
+  }
+
+  .byline {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .byline strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ── IMAGES ── */
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 3px;
+    margin: 3px 0;
+  }
+
+  .img-block {
+    background: var(--sand);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .img-block img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .img-block.main { grid-row: span 2; height: 480px; }
+  .img-block.side { height: 238px; }
+
+  .img-placeholder {
+    width: 100%; height: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .img-caption {
+    padding: 10px 64px;
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── OPENING ── */
+  .opening {
+    padding: 64px 64px 48px;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .opening blockquote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(20px, 2.8vw, 28px);
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--ink);
+    padding-left: 24px;
+    border-left: 3px solid var(--blue);
+  }
+
+  .opening .context {
+    margin-top: 18px;
+    padding-left: 27px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── BODY ── */
+  .body { padding: 0 64px; }
+
+  .sec {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .sec:last-child { border-bottom: none; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .sec-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--sand);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .sec-head h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  p.body-text {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #362E28;
+    font-weight: 300;
+    margin-bottom: 22px;
+  }
+
+  p.body-text:last-child { margin-bottom: 0; }
+
+  .q-inline {
+    margin: 24px 0;
+    padding: 20px 24px;
+    background: var(--warm-white);
+    border-left: 2px solid var(--blue);
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .q-pull {
+    margin: 32px -20px;
+    padding: 30px 44px;
+    background: var(--blue);
+    color: #EEF3F8;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.65;
+    position: relative;
+  }
+
+  .q-pull::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--accent);
+  }
+
+  /* ── STAT BOX ── */
+  .stat-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 32px 0;
+  }
+
+  .stat-item {
+    background: var(--ink);
+    color: #EEF3F8;
+    padding: 24px 28px;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #AAB8C4;
+  }
+
+  /* ── FOOTER ── */
+  .article-footer {
+    margin: 0 64px;
+    padding: 40px 0 0;
+    border-top: 1px solid var(--sand);
+  }
+
+  .campaign-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 32px;
+    background: var(--blue);
+    color: #EEF3F8;
+  }
+
+  .campaign-cta .cta-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .campaign-cta .cta-btn {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #EEF3F8;
+    text-decoration: none;
+    border: 1px solid rgba(238,243,248,0.4);
+    padding: 10px 20px;
+    transition: background 0.2s;
+  }
+
+  .campaign-cta .cta-btn:hover {
+    background: rgba(255,255,255,0.15);
+  }
+
+  /* ── CLOSING ── */
+  .closing-line {
+    margin-top: 32px;
+    padding: 28px 0 0;
+    border-top: 1px solid var(--sand);
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    .header, .opening, .body, .article-footer { padding-left: 24px; padding-right: 24px; }
+    .img-caption { padding-left: 24px; padding-right: 24px; }
+    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 28px; font-size: 16px; }
+    .image-grid { grid-template-columns: 1fr; }
+    .img-block.main { grid-row: span 1; height: 280px; }
+    .img-block.side { height: 200px; }
+    .stat-box { grid-template-columns: 1fr; }
+    h1 { font-size: 34px; }
+    .campaign-cta { flex-direction: column; align-items: flex-start; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .header  { animation: fadeUp 0.5s ease both; }
+  .opening { animation: fadeUp 0.5s ease 0.1s both; }
+  .body    { animation: fadeUp 0.5s ease 0.2s both; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="kicker">
+    <span class="kicker-tag">끈질긴 전략가 · 인터뷰 03</span>
+    <span class="kicker-line"></span>
+    <span class="kicker-series">아무리 덮어봐라, 우리가 밝혀내지</span>
+  </div>
+  <h1>재수가 좋았다고요?<br><em>그게 문제예요</em></h1>
+  <p class="byline">
+    <strong>엄성자 기획실장님</strong> · 전북 정읍시 옹동면환경연대<br>
+    전직 직장인. 부천에서 30년 살다 2021년 고향에 내려왔다.<br>"길어야 1년"을 생각하고 내려왔다가 4년째 석산 싸움 중이다.
+  </p>
+</div>
+
+<div class="image-grid">
+  <div class="img-block side"><div class="img-placeholder">사진 1</div></div>
+  <div class="img-block main"><div class="img-placeholder">사진 2</div></div>
+  <div class="img-block side"><div class="img-placeholder">사진 3</div></div>
+</div>
+<p class="img-caption">전북 정읍시 옹동면, 2025년 10월</p>
+
+<div class="opening">
+  <blockquote>"몰라서 뛰어든 거예요. 몰랐으니까 4년 동안 사생활 다 팽개치고 여기서 이러고 있는 거죠."</blockquote>
+  <p class="context">도시에 살다 30년 만에 고향에 돌아왔다. 부모님 집 앞에 석산이 들어온다는 사실을 알게 됐다. 그렇게 시작됐다.</p>
+</div>
+
+<div class="body">
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>집 앞 산이 사라질 뻔했다</h2>
+    </div>
+    <p class="body-text">옹동면에는 이미 30년 가까이 석산이 파고들어 있었다. 그런데 이제는 외곽에 있던 것들이 면 소재지 안으로 들어오려 한다.</p>
+    <div class="q-inline">"이건 아니다, 우리가 가만히 있으면 옹동면 전체를 다 할 수도 있겠구나 하는 위기의식이 들어서 주민들이 일어나기 시작한 거예요."</div>
+    <p class="body-text">사실 옹동 주민들이 처음 싸운 건 이번이 아니었다.</p>
+    <div class="q-inline">"처음에는 옹동면 농민회부터 해서 다 모여서 싸웠어요. 그런데 그때는 정보도 없고 뭐도 없으니까 거의 당했죠. 삼촌 같은 경우는 감옥도 갔다 오시고... 그러면서 주민들이 다 흩어지게 됐어요."</div>
+    <p class="body-text">이제는 환경이 더 열악해졌다. 실장님이 어린 시절을 보낸 마을엔 지금 다섯 집밖에 없다. 예전엔 80명이 살았다.</p>
+    <div class="q-inline">"지금은 인구가 너무 줄어들어서 마을로서는 뭔가 해결할 수가 없어요. 그래서 저희가 계속 주장하는 게 면 단위로 끌고 오라는 거예요. 면으로 끌고 와서 면에서 해결해야지, 예전처럼 마을에서는 해결할 수가 없다고요."</div>
+    <div class="q-pull">"석산도, 폐기물 처리장도, 송전선로도 따로따로 안 봤습니다. 이것들이 다 같이 있잖아요. 있는 곳에 또 새로운 게 계속 들어오고 있는 거예요. 그럼 우리는 어디 살아야 되냐고."</div>
+    <p class="body-text">2022년, 옹동면환경연대가 만들어졌다. 전국 유일의 면 단위 환경단체다.</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>우연히 알게 됐다는 것 자체가 문제다</h2>
+    </div>
+    <p class="body-text">환경연대가 만들어진 계기부터가 우연이었다. 지질조사 기계가 산으로 들어가는 걸 우연히 목격한 주민, 어쩌다 면사무소 앞을 지나다 주민설명회가 열리는 걸 발견한 주민.</p>
+    <div class="q-pull">"저희도 뭔가 이렇게 들어온 거니까 재수가 좋았어요. 너무 웃기지 않아요? 이렇게 중요한 일들이 그냥 우연히..."</div>
+    <p class="body-text">가장 먼저 필요한 건 사업계획서였다. 그런데 시에 사업계획서를 보여달라고 하면 돌아오는 대답은 한결같았다.</p>
+    <div class="q-inline">"영업 비밀이라는 거예요. 저희가 그 사업계획서를 보지 않으면 우리한테 어떤 피해가 오는지 알 수가 없잖아요."</div>
+    <p class="body-text">환경영향평가는 더했다.</p>
+    <div class="q-inline">"환경영향평가가 다 끝나기 전에는 내용을 알 수가 없거든요. 고지를 안 해요. 그래서 환경청에 계속 전화해서 물어보는 거예요. 질문을 콕 집어서 계속해야 돼요. 진짜 봉 문고리 잡는 그런 일이 계속 벌어지는 거예요."</div>
+    <p class="body-text">주민설명회도 요식행위였다. 옥산 채석장 연장 허가 때, 27년간 석산에 시달려온 7개 마을 주민들은 연장 사실을 몰랐다. 환경연대가 직접 설문조사를 돌렸더니 대부분이 "2022년 10월 옹동환경연대를 통해 알게 됐다"고 답했다.</p>
+    <div class="q-inline">"운이 좋았던 거죠. 만약 그분이 그날 거기 가지 않았다면, 업체 입맛에 맞는 사람 몇 명만 데려다 놓고 그렇게 진행하는 거예요."</div>
+    <p class="body-text">이게 구조의 문제라고 했다.</p>
+    <div class="q-inline">"주민들에게 피해를 줄 수 있는 사업이라고 하면 당연히 그 피해를 받는 주민들에게 사전 고지는 의무화돼야 된다고 봐요. 근데 그 부분이 너무 열악한 거예요."</div>
+    <div class="q-inline">"지방자치 시대에서 주민들의 권리는 굉장히 중요한 거잖아요. 환경권도 있고요. 저희는 이런 관점에서 보는 시점을 먼저 고쳐야 한다고 봐요. 그렇지 않으면 이게 해결될 수 없거든요."</div>
+    <div class="q-inline">"공개도 중요하지만, 공개할 수 있는 그 과정, 루트를 만드는 것도 굉장히 중요하다고 생각해요. 이런 게 들어와 있다, 그러면 면이든 어디든 알려줘서 '너네 지역에 지금 이런 일이 벌어지고 있다' 이렇게요."</div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>모든 게 다 주민들 발품이에요</h2>
+    </div>
+    <p class="body-text">알기 힘든 정보를 어떻게든 알아내더라도 싸움은 끝이 아니었다. 도시계획심의위원회가 열려도 주민들은 참여할 수 없었다. 어느 날은 산지관리위원회 현장점검 날짜가 당일 아침에 갑자기 바뀌었다.</p>
+    <div class="q-inline">"오후 2시에 온다고 했는데 갑자기 당일 날 아침 10시로 시간이 변경된 거예요. 근데 저는 그걸 예상했어요. 주민들한테 전화했죠. '지금 온다, 빨리 오세요.'"</div>
+    <p class="body-text">20명 가까이 모였다. 그날 현장에 주민 대표로 혼자 들어갔더니, 업체 측은 "주민들 반대가 없다"고 주장하고 있었다.</p>
+    <div class="q-inline">"제가 들어가지 않았으면 그랬을 거예요. 편파적으로 산지관리위원회에 그 내용이 전달될 수 있었으니까요."</div>
+    <div class="q-pull">"이게 저희가 막 해달라 해달라 해서 하는 게 아니라, 원래는 당연하게 이 과정에 주민들이 피해가 가는 부분이 있으면 당연히 우리 자리도 만들어줘야 되잖아요. 근데 그 부분이 없다는 거예요. 모든 위원회 절차에 피해가 가는 부분에 대해서 주민들의 자리를 만들어달라, 그거를 요청하고 싶어요."</div>
+    <p class="body-text">월별 채석량 자료는 처음에 안 줬다. 싸워서 받아냈다. 그게 재판에서 결정적인 증거가 됐다.</p>
+    <div class="q-inline">"이게 정보공개가 안 됐으면 우리가 못했을 거예요. 업체가 주민들에게 피해를 주지 않는 선에서 제대로 하고 있는지 알아볼 수 있는 문서라면, 그거는 당연히 주민들한테 정보공개를 해주는 게 맞다는 거죠."</div>
+    <div class="q-inline">"이런 것들을 계속계속 끊임없이 진행해야 돼요. 모든 게 다 주민들 발품이에요."</div>
+    <div class="q-pull">"저도 사실 거의 4년 동안 사생활 다 팽개치고 여기서 봉사 아닌 봉사활동을 하고 있는 거죠. 이게 말이 되냐고요. 근데 월급은 그 사람들이 다 받잖아요. 업자도 돈 벌고. 근데 우리는 왜 이러고 살아야 되냐고."</div>
+    <div class="q-inline">"분명히 사업자가 신청을 했고 시에서 허가를 내줬으면 그 관리 감독까지 모든 걸 시에서 봐야 되는 건데, 왜 우리한테는 자료도 하나도 주지 않으면서 그거는 왜 우리 몫이냐... 이 부분이 너무 화가 나요."</div>
+    <p class="body-text">한 가지 더 짚고 싶다고 했다. "시골 사람들은 돈만 보고 그래"라는 말에 대해.</p>
+    <div class="q-inline">"제가 와서 보니까 돈을 요구하는 이유가 업체가 이간질을 시키려고 돈을 몇 푼씩 쥐어주는 거예요. 들어가서 보면 다 반대하고 있고 답답해하지만, 본인들이 뭘 해야 할지 모르는 거예요."</div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>원 플러스 원, 그리고 삼촌 부대</h2>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-item">
+        <div class="stat-num">7전</div>
+        <div class="stat-label">석산 관련 재판 횟수<br>(폐기물 포함 약 10건)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">6승</div>
+        <div class="stat-label">주민들의 발품과<br>정보공개로 이뤄낸 승리</div>
+      </div>
+    </div>
+
+    <p class="body-text">어떻게 가능했을까.</p>
+    <div class="q-inline">"저희가 성공할 수 있었던 비결은 다른 게 있는 게 아니라 주민들을 계속 만나고 돌아다녔던 거예요. 상황을 전달하고, 뭐가 문제가 됐는지 알게 했던 거죠. 자기 본인들의 의사를 정확하게 표현할 수 있는 길을 만들어준 거예요."</div>
+    <p class="body-text">도시에서 30년을 살다 온 자신과, 옹동에 계속 살며 인맥과 현장을 꿰뚫고 있는 사무국장님. 실장님은 이걸 "원 플러스 원"이라고 불렀다. 여기에 "삼촌 부대"가 있었다.</p>
+    <div class="q-inline">"저희 회장님, 부회장님, 그리고 숨어 있는 삼촌들이 되게 많아요. 각자의 역할이 제 머릿속에 나눠져 있어요. 이런 관련된 거는 몇몇 삼촌한테 전화하고, 이 파트는 몇몇 삼촌한테 전화하고... 이렇게 해서 도움을 요청해서."</div>
+    <p class="body-text">정읍시의 협조도 컸다. 하지만 그게 그냥 주어진 건 아니었다.</p>
+    <div class="q-inline">"공무원 분들의 태도는 시장님이 바뀌기 전과 후가 완전히 달라요. 그래서 사실은 투표를 잘해야지 세상이 바뀐다는 얘기가 맞아요."</div>
+    <div class="q-pull">"시에서 불허를 내주는 게 50%를 먹고 들어가는 거예요. 50%는 굉장히 큰 거예요. 주민들의 노력도 중요하지만, 그건 정말 노력을 하면서 투표도 잘해야 돼요."</div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>끝이 없이, 계속</h2>
+    </div>
+    <p class="body-text">7전 6승. 그런데 싸움은 끝나지 않는다. 하나가 정리될 무렵 또 다른 신청이 들어온다.</p>
+    <div class="q-inline">"저희가 계속 이렇게 맞물려서 돌아가는 거예요. 끝이 없이요."</div>
+    <div class="q-inline">"주민의 침묵은 끝을 부르는 게 아니라 업자들을 계속 끌어들이는 힘을 발휘하는 것밖에 없어요."</div>
+    <p class="body-text">힘들지 않냐고? 물론 힘들다. 그래도 버티는 방법이 있다.</p>
+    <div class="q-inline">"그럴 때마다 바닥을 보죠. 다른 데는 군수가 저래서 저러고 있다는데... 여기 주민들은 그래도 같이 해주고 있는데... 계속 위를 자꾸 보면 너무 힘들고, 밑을 계속 내려다보면서 '그래도 나아, 이거 좀 낫네' 이러고 다니는 거죠."</div>
+    <p class="body-text">인터뷰를 마치면서 마지막으로 이 말을 남겼다.</p>
+    <div class="q-pull">"저는 주민 피해 보는 거에 대해서는 그냥 정보공개를 할 수 있게 조례가 전국적으로 좀 만들어줬으면 좋겠어요."</div>
+    <p class="body-text">인터뷰 내내 지도를 펼쳐놓고 여기저기 가리키던 실장님이, 마지막에 지도를 한 번 더 훑으며 말했다.</p>
+    <div class="q-inline">"석산도, 폐기물 처리장도, 송전선로도 다 같이 있잖아요. 있는 곳에 또 새로운 게 계속 들어오고 있는 거예요. 그럼 우리는 어디 살아야 되냐고."</div>
+    <p class="body-text">그 물음에 잠깐 침묵이 흘렀다.</p>
+    <div class="q-inline">"답이 없어요."</div>
+  </div>
+
+</div>
+
+<div class="article-footer">
+  <div class="campaign-cta">
+    <span class="cta-text">난개발 알권리 조례,<br>지금 필요합니다</span>
+    <a href="#" class="cta-btn">조례 제정 촉구하기 →</a>
+  </div>
+</div>
+
+</body>
+</html>
