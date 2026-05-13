@@ -96,8 +96,7 @@
   /* ── IMAGES ── */
   .image-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 3fr 2fr;
     gap: 3px;
     margin: 3px 0;
   }
@@ -321,9 +320,31 @@
   .header  { animation: fadeUp 0.5s ease both; }
   .opening { animation: fadeUp 0.5s ease 0.1s both; }
   .body    { animation: fadeUp 0.5s ease 0.2s both; }
+
+  /* ── SITE HEADER IMAGE ── */
+  .site-header-img {
+    width: 100%;
+    max-width: 900px;
+    height: 320px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .site-header-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .site-header-img { height: 200px; }
+  }
+
 </style>
 </head>
 <body>
+
+<div class="site-header-img">
+  <img src="https://drive.google.com/uc?export=view&id=1i_cDoVKwl7kWfkltxJYZL0o3pz2ChKwL" alt="아무리 덮어봐라, 우리가 밝혀내지">
+</div>
 
 <div class="header">
   <div class="kicker">
@@ -339,9 +360,8 @@
 </div>
 
 <div class="image-grid">
-  <div class="img-block main"><div class="img-placeholder">사진 1</div></div>
-  <div class="img-block side"><div class="img-placeholder">사진 2</div></div>
-  <div class="img-block side"><div class="img-placeholder">사진 3</div></div>
+  <div class="img-block main"><img src="https://drive.google.com/uc?export=view&id=19nUr29XJiY9yL_vqPQ7Ft-7lAC6tmZS8" alt="김용자 이장님"></div>
+  <div class="img-block side"><img src="https://drive.google.com/uc?export=view&id=1xUbXWB--mB2UAbX9ciuCe-Ah-n58Ayen" alt="김용자 이장님 현장"></div>
 </div>
 <p class="img-caption">괴산군 사리면 대기마을, 2024년 가을</p>
 
