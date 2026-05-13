@@ -6,17 +6,17 @@
 <title>투쟁 메이트, 고의숙·조순희</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #EEF0EC;
-    --ink: #18201A;
-    --green: #2D5233;
-    --sage: #4A6B4F;
-    --sand: #C3C9BE;
-    --warm-white: #F5F7F3;
-    --muted: #7A8A7D;
-    --accent: #8B3A1E;
+    --yellow: #f8ff71;
+    --brown: #3c1e00;
+    --orange: #ff5500;
+    --brown-mid: #6b3a10;
+    --brown-light: #a0662a;
+    --cream: #fdf9ec;
+    --yellow-dim: #d4db3a;
+    --paper: #faf6e8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,345 +24,394 @@
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    max-width: 900px;
+    background: var(--cream);
+    color: var(--brown);
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 0 120px;
+    padding-bottom: 120px;
+  }
+
+  /* ── SERIES RIBBON ── */
+  .series-ribbon {
+    background: var(--yellow);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 4px solid var(--brown);
+    border-top: 4px solid var(--brown);
+  }
+
+  .series-tag {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  .series-line {
+    flex: 1;
+    height: 1px;
+    background: var(--brown);
+    opacity: 0.3;
+  }
+
+  .series-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brown-mid);
+    letter-spacing: 0.1em;
   }
 
   /* ── HEADER ── */
   .header {
-    padding: 72px 64px 0;
+    background: var(--brown);
+    padding: 48px 56px 52px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .kicker {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
+  .header::before {
+    content: '👯‍♀️';
+    position: absolute;
+    right: 40px;
+    top: 32px;
+    font-size: 80px;
+    opacity: 0.12;
+    transform: rotate(6deg);
   }
 
-  .kicker-tag {
+  .header-label {
+    display: inline-block;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--green);
-  }
-
-  .kicker-line {
-    flex: 1;
-    height: 1px;
-    background: var(--sand);
-  }
-
-  .kicker-series {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--muted);
+    color: var(--orange);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 4px;
   }
 
   h1 {
     font-family: 'Noto Serif KR', serif;
-    font-weight: 900;
-    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 700;
+    font-size: clamp(38px, 6.5vw, 64px);
     line-height: 1.12;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+    color: var(--yellow);
+    margin-bottom: 8px;
   }
 
-  h1 em {
-    font-style: italic;
-    font-family: 'DM Serif Display', serif;
-    color: var(--green);
+  h1 span.highlight {
+    color: var(--orange);
   }
 
   .byline {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(248,255,113,0.2);
+  }
+
+  .byline-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .byline-desc {
     font-size: 13px;
-    color: var(--muted);
     font-weight: 300;
-    line-height: 1.7;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--sand);
+    color: rgba(248,255,113,0.65);
+    line-height: 1.75;
   }
 
-  .byline strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* ── IMAGES ── */
-  .image-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 3px;
-    margin: 3px 0;
-  }
-
-  .img-block {
-    background: var(--sand);
-    overflow: hidden;
-  }
-  .img-block.main { height: 440px; }
-  .img-block.side { height: 440px; }
-
-  .img-block img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .img-placeholder {
-    width: 100%; height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .img-caption {
-    padding: 10px 64px;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  /* ── OPENING ── */
+  /* ── OPENING QUOTE ── */
   .opening {
-    padding: 64px 64px 48px;
-    border-bottom: 1px solid var(--sand);
+    background: var(--yellow);
+    padding: 48px 56px;
+    border-bottom: 4px solid var(--brown);
+    position: relative;
+  }
+
+  .opening::before {
+    content: '"';
+    font-family: 'Noto Serif KR', serif;
+    font-size: 120px;
+    color: var(--brown);
+    opacity: 0.1;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    line-height: 1;
   }
 
   .opening blockquote {
     font-family: 'Noto Serif KR', serif;
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 700;
+    font-size: clamp(17px, 2.8vw, 24px);
+    font-weight: 900;
     line-height: 1.6;
-    color: var(--ink);
-    padding-left: 24px;
-    border-left: 3px solid var(--green);
+    color: var(--brown);
+    position: relative;
+    z-index: 1;
   }
 
   .opening .context {
-    margin-top: 18px;
-    padding-left: 27px;
+    margin-top: 16px;
     font-size: 14px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.7;
+    color: var(--brown-mid);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.8;
   }
 
   /* ── BODY ── */
-  .body { padding: 0 64px; }
+  .body {
+    padding: 0 56px;
+    background: var(--paper);
+  }
 
   .sec {
     padding: 56px 0;
-    border-bottom: 1px solid var(--sand);
+    border-bottom: 1px solid rgba(60,30,0,0.12);
   }
 
   .sec:last-child { border-bottom: none; }
 
   .sec-head {
     display: flex;
-    align-items: baseline;
-    gap: 16px;
+    align-items: flex-start;
+    gap: 0;
     margin-bottom: 28px;
   }
 
   .sec-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 36px;
-    color: var(--sand);
-    line-height: 1;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 72px;
+    color: var(--yellow);
+    line-height: 0.85;
     flex-shrink: 0;
+    margin-right: 16px;
+    -webkit-text-stroke: 2px var(--brown);
+    position: relative;
+    top: -4px;
   }
 
   .sec-head h2 {
     font-family: 'Noto Serif KR', serif;
     font-size: 20px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.35;
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1.4;
+    padding-top: 8px;
   }
 
   p.body-text {
-    font-size: 16px;
-    line-height: 1.9;
-    color: #2E3A30;
+    font-size: 15.5px;
+    line-height: 2;
+    color: #3c1e00cc;
     font-weight: 300;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   p.body-text:last-child { margin-bottom: 0; }
 
+  /* inline quote */
   .q-inline {
     margin: 24px 0;
-    padding: 20px 24px;
-    background: var(--warm-white);
-    border-left: 2px solid var(--green);
+    padding: 18px 20px 18px 24px;
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
     font-family: 'Noto Serif KR', serif;
     font-size: 15px;
     font-weight: 600;
-    line-height: 1.7;
-    color: var(--ink);
+    line-height: 1.75;
+    color: var(--brown);
+    border-radius: 0 4px 4px 0;
   }
 
+  /* pull quote */
   .q-pull {
-    margin: 32px -20px;
-    padding: 30px 44px;
-    background: var(--green);
-    color: #F0F4F0;
+    margin: 36px -20px;
+    padding: 32px 48px 32px 44px;
+    background: var(--brown);
+    color: var(--yellow);
     font-family: 'Noto Serif KR', serif;
-    font-size: 18px;
+    font-size: clamp(15px, 2.2vw, 19px);
     font-weight: 700;
-    line-height: 1.65;
+    line-height: 1.7;
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
   }
 
   .q-pull::before {
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--accent);
+    width: 6px;
+    background: var(--orange);
   }
 
   /* ── VICTORY BOX ── */
   .victory-box {
     margin: 32px 0;
-    padding: 32px;
-    background: var(--ink);
-    color: #F0F4F0;
+    padding: 32px 36px;
+    background: var(--yellow);
+    border: 3px solid var(--brown);
+    position: relative;
+    overflow: hidden;
   }
 
-  .victory-box .victory-date {
-    font-size: 11px;
-    font-weight: 700;
+  .victory-box::before {
+    content: '🎉';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 56px;
+    opacity: 0.15;
+  }
+
+  .victory-date {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 12px;
     letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
+    color: var(--orange);
     margin-bottom: 12px;
+    text-transform: uppercase;
   }
 
   .victory-box p {
+    font-family: 'Noto Serif KR', serif;
     font-size: 15px;
-    line-height: 1.8;
-    font-weight: 300;
-    color: #D0D8D2;
+    line-height: 1.85;
+    font-weight: 600;
+    color: var(--brown);
   }
 
-  /* ── FOOTER ── */
+  /* ── FOOTER CTA ── */
   .article-footer {
-    margin: 0 64px;
+    margin: 0 56px;
     padding: 40px 0 0;
-    border-top: 1px solid var(--sand);
+    border-top: 3px solid var(--brown);
   }
 
   .campaign-cta {
-    display: flex;
+    background: var(--brown);
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
-    padding: 28px 32px;
-    background: var(--green);
-    color: #F0F4F0;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .campaign-cta .cta-text {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4;
+  .campaign-cta::after {
+    content: '👯‍♀️';
+    position: absolute;
+    right: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    opacity: 0.06;
   }
 
-  .campaign-cta .cta-btn {
-    white-space: nowrap;
-    font-size: 12px;
+  .cta-label {
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #F0F4F0;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .cta-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    white-space: nowrap;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+    background: var(--yellow);
     text-decoration: none;
-    border: 1px solid rgba(240,244,240,0.5);
-    padding: 10px 20px;
-    transition: background 0.2s;
+    padding: 14px 24px;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+    display: block;
+    text-align: center;
   }
 
-  .campaign-cta .cta-btn:hover {
-    background: rgba(255,255,255,0.15);
+  .cta-btn:hover {
+    background: var(--orange);
+    color: #fff;
+    transform: translateY(-2px);
   }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    .header, .opening, .body, .article-footer { padding-left: 24px; padding-right: 24px; }
-    .img-caption { padding-left: 24px; padding-right: 24px; }
-    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 28px; font-size: 16px; }
-    .image-grid { grid-template-columns: 1fr; }
-    .img-block { height: 240px; }
-    .img-block:not(:first-child) { display: none; }
-    h1 { font-size: 34px; }
-    .campaign-cta { flex-direction: column; align-items: flex-start; }
-  }
-
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .header  { animation: fadeUp 0.5s ease both; }
-  .opening { animation: fadeUp 0.5s ease 0.1s both; }
-  .body    { animation: fadeUp 0.5s ease 0.2s both; }
+  .header  { animation: fadeUp 0.55s ease both; }
+  .opening { animation: fadeUp 0.55s ease 0.1s both; }
+  .body    { animation: fadeUp 0.55s ease 0.2s both; }
 
-  /* ── SITE HEADER IMAGE ── */
-  .site-header-img {
-    width: 100%;
-    max-width: 900px;
-    height: 320px;
-    overflow: hidden;
-    margin-bottom: 0;
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .header, .opening, .body, .article-footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 32px; }
+    h1 { font-size: 34px; }
+    .sec-num { font-size: 54px; }
+    .campaign-cta { grid-template-columns: 1fr; }
+    .campaign-cta::after { display: none; }
   }
-  .site-header-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 700px) {
-    .site-header-img { height: 200px; }
-  }
-
 </style>
 </head>
 <body>
 
-<div class="site-header-img">
-  <img src="https://lh3.googleusercontent.com/d/1i_cDoVKwl7kWfkltxJYZL0o3pz2ChKwL" alt="아무리 덮어봐라, 우리가 밝혀내지">
+<!-- SERIES RIBBON -->
+<div class="series-ribbon">
+  <span class="series-tag">아무리 덮어봐라, 우리가 파헤치지</span>
+  <span class="series-line"></span>
+  <span class="series-num">인터뷰 02 / 03</span>
 </div>
 
+<!-- HEADER -->
 <div class="header">
-  <div class="kicker">
-    <span class="kicker-tag">투쟁 메이트 · 인터뷰 02</span>
-    <span class="kicker-line"></span>
-    <span class="kicker-series">아무리 덮어봐라, 우리가 밝혀내지</span>
+  <div class="header-label">투쟁 메이트 · 충남 예산군 신암면 조곡산단반대주민대책위원회</div>
+  <h1>끝난 건 끝을<br><span class="highlight">봐야 알죠</span></h1>
+  <div class="byline">
+    <div class="byline-name">고의숙 · 조순희</div>
+    <div class="byline-desc">
+      2023년 말, 동네에 산업폐기물 매립장이 들어온다는 사실을 뒤늦게 알았다.<br>
+      대기업에 맞서 2년 간 싸워, 산업단지 계획을 백지화시켰다.
+    </div>
   </div>
-  <h1>끝난 건 끝을<br><em>봐야 알죠</em></h1>
-  <p class="byline">
-    <strong>고의숙·조순희</strong> · 충남 예산군 신암면 조곡산단반대주민대책위원회<br>
-    2023년 말, 동네에 산업폐기물 매립장이 들어온다는 사실을 뒤늦게 알았다.<br>대기업에 맞서 2년 간 싸워, 산업단지 계획을 백지화시켰다.
-  </p>
 </div>
 
+<!-- OPENING -->
 <div class="opening">
   <blockquote>"충청도는 집회에서도 '군수님 나오시오' 이래요. 전라도는 '저 새끼 잡아라' 그런다는데, 우리는 너무 예의가 발라요."</blockquote>
   <p class="context">그러면서 덧붙였다. "시골은 저항을 안 하는 게 아니라 할 힘이 없어서 못하는 거거든요. 근데 저들은 그걸 '아무것도 모른다'고 보는 거야." 이분들, 모른다고 무시하면 안 된다.</p>
 </div>
 
+<!-- BODY -->
 <div class="body">
 
   <div class="sec">
@@ -454,21 +503,27 @@
       <h2>그리고 11월의 승전보</h2>
     </div>
     <p class="body-text">인터뷰가 끝나고 한 달 반 뒤인 11월 5일, 기쁜 소식이 들려왔다.</p>
+
     <div class="victory-box">
-      <div class="victory-date">2024년 11월 5일</div>
+      <div class="victory-date">🏆 2024년 11월 5일 · 승리</div>
       <p>SK에코플랜트가 예산군과 충남도에 '조곡산업단지 조성 사업 포기' 공문을 공식 제출했다. 폐기물 매립장 없이는 수지타산이 맞지 않는다는 판단이었다. 11월 11일 농업인의 날, 마을에서 잔치가 열렸다. 4년 3개월의 싸움이 마침표를 찍었다.</p>
     </div>
+
     <p class="body-text">승리 소식을 접하면서, 고의숙이 인터뷰 중에 한 말이 다시 떠올랐다.</p>
     <div class="q-pull">"성공 사례가 너무 없어서, 우리가 어떻게든지 성공을 해야 합니다. 우리가 부당할 때 손 들고 나오면 해결할 수 있다는 성공담을 가져야만, 앞으로 뭐가 바뀌어도 '관에서 하는 거니 우리는 어쩔 수 없다'는 생각으로 계속 무너지지 않을 거예요."</div>
     <p class="body-text">이제 그 성공담이 하나 생겼다.</p>
   </div>
 
-</div>
+</div><!-- /body -->
 
+<!-- FOOTER CTA -->
 <div class="article-footer">
   <div class="campaign-cta">
-    <span class="cta-text">난개발과 환경오염을 막기 위한 주민 알권리 조례,<br>지금 당장 필요합니다!</span>
-    <a href="https://cfoi1.github.io/weneedlaw" class="cta-btn">내용 살펴보기 →</a>
+    <div>
+      <div class="cta-label">지금 바로 서명하기</div>
+      <div class="cta-text">난개발과 환경오염을 막기 위한<br>주민 알권리 법안, 지금 당장 필요합니다!</div>
+    </div>
+    <a href="https://team-sigol.kr/" class="cta-btn">서명하러 가기 →</a>
   </div>
 </div>
 
