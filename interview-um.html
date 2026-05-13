@@ -318,7 +318,20 @@
     color: var(--muted);
     font-style: italic;
   }
-
+/* ── PROFILE IMAGE ── */
+  .profile-img-wrap {
+    padding: 0 64px;
+    margin-top: 32px; /* 상단(byline)과의 간격 */
+  }
+  .profile-img-wrap .img-block {
+    height: auto;
+    max-height: 600px; /* 세로형 이미지일 경우 과도하게 커지는 것 방지 */
+  }
+  
+  /* 모바일 대응 (기존 미디어 쿼리 블록 안에 추가) */
+  @media (max-width: 700px) {
+    .profile-img-wrap { padding-left: 24px; padding-right: 24px; }
+  }
   /* ── RESPONSIVE ── */
   @media (max-width: 700px) {
     .header, .opening, .body, .article-footer { padding-left: 24px; padding-right: 24px; }
@@ -378,7 +391,11 @@
     전직 직장인. 부천에서 30년 살다 2021년 고향에 내려왔다.<br>"길어야 1년"을 생각하고 내려왔다가 4년째 석산 싸움 중이다.
   </p>
 </div>
-
+<div class="profile-img-wrap">
+    <div class="img-block">
+      <img src="https://drive.google.com/uc?export=view&id=1Vd_uO_DyPJ7oQjnVBzki8-j0eQkV7dSU" alt="엄성자 기획실장 인터뷰 사진">
+    </div>
+  </div>
 <div class="opening">
   <blockquote>"몰라서 뛰어든 거예요. 몰랐으니까 4년 동안 사생활 다 팽개치고 여기서 이러고 있는 거죠."</blockquote>
   <p class="context">도시에 살다 30년 만에 고향에 돌아왔다. 부모님 집 앞에 석산이 들어온다는 사실을 알게 됐다. 그렇게 시작됐다.</p>
