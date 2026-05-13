@@ -6,17 +6,15 @@
 <title>끈질긴 전략가, 옹동면환경연대 엄성자 기획실장</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F0EDE8;
-    --ink: #1A1714;
-    --blue: #1C3A5C;
-    --steel: #2E5070;
-    --sand: #C8C0B4;
-    --warm-white: #FAF8F4;
-    --muted: #877E74;
-    --accent: #C4440A;
+    --yellow: #f8ff71;
+    --brown: #3c1e00;
+    --orange: #ff5500;
+    --brown-mid: #6b3a10;
+    --cream: #fdf9ec;
+    --paper: #faf6e8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,383 +22,400 @@
 
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    max-width: 900px;
+    background: var(--cream);
+    color: var(--brown);
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 0 120px;
+    padding-bottom: 120px;
+  }
+
+  /* ── SERIES RIBBON ── */
+  .series-ribbon {
+    background: var(--yellow);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 4px solid var(--brown);
+    border-top: 4px solid var(--brown);
+  }
+
+  .series-tag {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--brown);
+    white-space: nowrap;
+  }
+
+  .series-line {
+    flex: 1;
+    height: 1px;
+    background: var(--brown);
+    opacity: 0.3;
+  }
+
+  .series-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--brown-mid);
+    letter-spacing: 0.1em;
   }
 
   /* ── HEADER ── */
   .header {
-    padding: 72px 64px 0;
+    background: var(--brown);
+    padding: 48px 56px 52px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .kicker {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
+  .header::before {
+    content: '🔎';
+    position: absolute;
+    right: 40px;
+    top: 32px;
+    font-size: 80px;
+    opacity: 0.12;
+    transform: rotate(-8deg);
   }
 
-  .kicker-tag {
+  .header-label {
+    display: inline-block;
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--blue);
-  }
-
-  .kicker-line {
-    flex: 1;
-    height: 1px;
-    background: var(--sand);
-  }
-
-  .kicker-series {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--muted);
+    color: var(--orange);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--orange);
+    padding-bottom: 4px;
   }
 
   h1 {
     font-family: 'Noto Serif KR', serif;
-    font-weight: 900;
-    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 700;
+    font-size: clamp(38px, 6.5vw, 64px);
     line-height: 1.12;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+    color: var(--yellow);
+    margin-bottom: 8px;
   }
 
-  h1 em {
-    font-style: italic;
-    font-family: 'DM Serif Display', serif;
-    color: var(--blue);
+  h1 span.highlight {
+    color: var(--orange);
   }
 
   .byline {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(248,255,113,0.2);
+  }
+
+  .byline-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--yellow);
+    margin-bottom: 6px;
+  }
+
+  .byline-desc {
     font-size: 13px;
-    color: var(--muted);
     font-weight: 300;
-    line-height: 1.7;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--sand);
+    color: rgba(248,255,113,0.65);
+    line-height: 1.75;
   }
 
-  .byline strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* ── IMAGES ── */
-  .image-grid {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 3px;
-    margin: 3px 0;
-  }
-
-  .img-block {
-    background: var(--sand);
-    overflow: hidden;
+  /* ── OPENING QUOTE ── */
+  .opening {
+    background: var(--yellow);
+    padding: 48px 56px;
+    border-bottom: 4px solid var(--brown);
     position: relative;
   }
 
-  .img-block img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .img-block.main { grid-row: span 2; height: 480px; }
-  .img-block.side { height: 238px; }
-
-  .img-placeholder {
-    width: 100%; height: 100%;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .img-caption {
-    padding: 10px 64px;
-    font-size: 12px;
-    color: var(--muted);
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  /* ── OPENING ── */
-  .opening {
-    padding: 64px 64px 48px;
-    border-bottom: 1px solid var(--sand);
+  .opening::before {
+    content: '"';
+    font-family: 'Noto Serif KR', serif;
+    font-size: 120px;
+    color: var(--brown);
+    opacity: 0.1;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    line-height: 1;
   }
 
   .opening blockquote {
     font-family: 'Noto Serif KR', serif;
-    font-size: clamp(20px, 2.8vw, 28px);
-    font-weight: 700;
+    font-size: clamp(17px, 2.8vw, 24px);
+    font-weight: 900;
     line-height: 1.6;
-    color: var(--ink);
-    padding-left: 24px;
-    border-left: 3px solid var(--blue);
+    color: var(--brown);
+    position: relative;
+    z-index: 1;
   }
 
   .opening .context {
-    margin-top: 18px;
-    padding-left: 27px;
+    margin-top: 16px;
     font-size: 14px;
-    color: var(--muted);
-    font-weight: 300;
-    line-height: 1.7;
+    color: var(--brown-mid);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.8;
   }
 
   /* ── BODY ── */
-  .body { padding: 0 64px; }
+  .body {
+    padding: 0 56px;
+    background: var(--paper);
+  }
 
   .sec {
     padding: 56px 0;
-    border-bottom: 1px solid var(--sand);
+    border-bottom: 1px solid rgba(60,30,0,0.12);
   }
 
   .sec:last-child { border-bottom: none; }
 
   .sec-head {
     display: flex;
-    align-items: baseline;
-    gap: 16px;
+    align-items: flex-start;
     margin-bottom: 28px;
   }
 
   .sec-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 36px;
-    color: var(--sand);
-    line-height: 1;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 72px;
+    color: var(--yellow);
+    line-height: 0.85;
     flex-shrink: 0;
+    margin-right: 16px;
+    -webkit-text-stroke: 2px var(--brown);
+    position: relative;
+    top: -4px;
   }
 
   .sec-head h2 {
     font-family: 'Noto Serif KR', serif;
     font-size: 20px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.35;
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1.4;
+    padding-top: 8px;
   }
 
   p.body-text {
-    font-size: 16px;
-    line-height: 1.9;
-    color: #362E28;
+    font-size: 15.5px;
+    line-height: 2;
+    color: #3c1e00cc;
     font-weight: 300;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   p.body-text:last-child { margin-bottom: 0; }
 
+  /* inline quote */
   .q-inline {
     margin: 24px 0;
-    padding: 20px 24px;
-    background: var(--warm-white);
-    border-left: 2px solid var(--blue);
+    padding: 18px 20px 18px 24px;
+    background: var(--cream);
+    border-left: 4px solid var(--orange);
     font-family: 'Noto Serif KR', serif;
     font-size: 15px;
     font-weight: 600;
-    line-height: 1.7;
-    color: var(--ink);
+    line-height: 1.75;
+    color: var(--brown);
+    border-radius: 0 4px 4px 0;
   }
 
+  /* pull quote */
   .q-pull {
-    margin: 32px -20px;
-    padding: 30px 44px;
-    background: var(--blue);
-    color: #EEF3F8;
+    margin: 36px -20px;
+    padding: 32px 48px 32px 44px;
+    background: var(--brown);
+    color: var(--yellow);
     font-family: 'Noto Serif KR', serif;
-    font-size: 18px;
+    font-size: clamp(15px, 2.2vw, 19px);
     font-weight: 700;
-    line-height: 1.65;
+    line-height: 1.7;
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
   }
 
   .q-pull::before {
     content: '';
     position: absolute;
     left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--accent);
+    width: 6px;
+    background: var(--orange);
   }
 
   /* ── STAT BOX ── */
   .stat-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: 3px;
     margin: 32px 0;
   }
 
   .stat-item {
-    background: var(--ink);
-    color: #EEF3F8;
-    padding: 24px 28px;
+    background: var(--brown);
+    padding: 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 60px; height: 60px;
+    background: var(--orange);
+    opacity: 0.08;
+    border-radius: 50%;
+    transform: translate(20px, 20px);
   }
 
   .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 48px;
-    color: var(--accent);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 52px;
+    color: var(--yellow);
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
   }
 
   .stat-label {
     font-size: 13px;
     font-weight: 300;
-    line-height: 1.5;
-    color: #AAB8C4;
+    line-height: 1.6;
+    color: rgba(248,255,113,0.6);
   }
 
-  /* ── FOOTER ── */
+  /* ── FOOTER CTA ── */
   .article-footer {
-    margin: 0 64px;
+    margin: 0 56px;
     padding: 40px 0 0;
-    border-top: 1px solid var(--sand);
+    border-top: 3px solid var(--brown);
   }
 
   .campaign-cta {
-    display: flex;
+    background: var(--brown);
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 24px;
-    padding: 28px 32px;
-    background: var(--blue);
-    color: #EEF3F8;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .campaign-cta .cta-text {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.4;
+  .campaign-cta::after {
+    content: '📖';
+    position: absolute;
+    right: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    opacity: 0.06;
   }
 
-  .campaign-cta .cta-btn {
-    white-space: nowrap;
-    font-size: 12px;
+  .cta-label {
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #EEF3F8;
-    text-decoration: none;
-    border: 1px solid rgba(238,243,248,0.4);
-    padding: 10px 20px;
-    transition: background 0.2s;
+    color: var(--orange);
+    margin-bottom: 8px;
   }
 
-  .campaign-cta .cta-btn:hover {
-    background: rgba(255,255,255,0.15);
-  }
-
-  /* ── CLOSING ── */
-  .closing-line {
-    margin-top: 32px;
-    padding: 28px 0 0;
-    border-top: 1px solid var(--sand);
+  .cta-text {
     font-family: 'Noto Serif KR', serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--muted);
-    font-style: italic;
-  }
-/* ── PROFILE IMAGE ── */
-  .profile-img-wrap {
-    padding: 0 64px;
-    margin-top: 32px; /* 상단(byline)과의 간격 */
-  }
-  .profile-img-wrap .img-block {
-    height: auto;
-    max-height: 600px; /* 세로형 이미지일 경우 과도하게 커지는 것 방지 */
-  }
-  
-  /* 모바일 대응 (기존 미디어 쿼리 블록 안에 추가) */
-  @media (max-width: 700px) {
-    .profile-img-wrap { padding-left: 24px; padding-right: 24px; }
-  }
-  /* ── RESPONSIVE ── */
-  @media (max-width: 700px) {
-    .header, .opening, .body, .article-footer { padding-left: 24px; padding-right: 24px; }
-    .img-caption { padding-left: 24px; padding-right: 24px; }
-    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 28px; font-size: 16px; }
-    .image-grid { grid-template-columns: 1fr; }
-    .img-block.main { grid-row: span 1; height: 280px; }
-    .img-block.side { height: 200px; }
-    .stat-box { grid-template-columns: 1fr; }
-    h1 { font-size: 34px; }
-    .campaign-cta { flex-direction: column; align-items: flex-start; }
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1.5;
   }
 
+  .cta-btn {
+    white-space: nowrap;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+    background: var(--yellow);
+    text-decoration: none;
+    padding: 14px 24px;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .cta-btn:hover {
+    background: var(--orange);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .header  { animation: fadeUp 0.5s ease both; }
-  .opening { animation: fadeUp 0.5s ease 0.1s both; }
-  .body    { animation: fadeUp 0.5s ease 0.2s both; }
+  .header  { animation: fadeUp 0.55s ease both; }
+  .opening { animation: fadeUp 0.55s ease 0.1s both; }
+  .body    { animation: fadeUp 0.55s ease 0.2s both; }
 
-  /* ── SITE HEADER IMAGE ── */
-  .site-header-img {
-    width: 100%;
-    max-width: 900px;
-    height: 320px;
-    overflow: hidden;
-    margin-bottom: 0;
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .header, .opening, .body, .article-footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .series-ribbon { padding-left: 24px; padding-right: 24px; }
+    .q-pull { margin-left: -24px; margin-right: -24px; padding: 24px 32px; }
+    h1 { font-size: 34px; }
+    .sec-num { font-size: 54px; }
+    .stat-box { grid-template-columns: 1fr; }
+    .campaign-cta { grid-template-columns: 1fr; }
+    .campaign-cta::after { display: none; }
   }
-  .site-header-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 700px) {
-    .site-header-img { height: 200px; }
-  }
-
 </style>
 </head>
 <body>
 
-<div class="site-header-img">
-  <img src="https://lh3.googleusercontent.com/d/1i_cDoVKwl7kWfkltxJYZL0o3pz2ChKwL" alt="아무리 덮어봐라, 우리가 밝혀내지">
+<!-- SERIES RIBBON -->
+<div class="series-ribbon">
+  <span class="series-tag">아무리 덮어봐라, 우리가 파헤치지</span>
+  <span class="series-line"></span>
+  <span class="series-num">인터뷰 03 / 03</span>
 </div>
 
+<!-- HEADER -->
 <div class="header">
-  <div class="kicker">
-    <span class="kicker-tag">끈질긴 전략가 · 인터뷰 03</span>
-    <span class="kicker-line"></span>
-    <span class="kicker-series">아무리 덮어봐라, 우리가 밝혀내지</span>
-  </div>
-  <h1>재수가 좋았다고요?<br><em>그게 문제예요</em></h1>
-  <p class="byline">
-    <strong>엄성자 기획실장</strong> · 전북 정읍시 옹동면환경연대<br>
-    전직 직장인. 부천에서 30년 살다 2021년 고향에 내려왔다.<br>"길어야 1년"을 생각하고 내려왔다가 4년째 석산 싸움 중이다.
-  </p>
-</div>
-<div class="profile-img-wrap">
-    <div class="img-block">
-      <img src="https://github.com/cfoi1/interview_team-sigol/blob/main/3.png" alt="엄성자 기획실장 인터뷰 사진">
+  <div class="header-label">끈질긴 전략가 · 전북 정읍시 옹동면환경연대</div>
+  <h1>재수가 좋았다고요?<br><span class="highlight">그게 문제예요</span></h1>
+  <div class="byline">
+    <div class="byline-name">엄성자 기획실장</div>
+    <div class="byline-desc">
+      전직 직장인. 부천에서 30년 살다 2021년 고향에 내려왔다.<br>
+      "길어야 1년"을 생각하고 내려왔다가 4년째 석산 싸움 중이다.
     </div>
   </div>
+</div>
+
+<!-- OPENING -->
 <div class="opening">
   <blockquote>"몰라서 뛰어든 거예요. 몰랐으니까 4년 동안 사생활 다 팽개치고 여기서 이러고 있는 거죠."</blockquote>
   <p class="context">도시에 살다 30년 만에 고향에 돌아왔다. 부모님 집 앞에 석산이 들어온다는 사실을 알게 됐다. 그렇게 시작됐다.</p>
 </div>
 
+<!-- BODY -->
 <div class="body">
 
   <div class="sec">
@@ -433,7 +448,6 @@
     <div class="q-inline">"운이 좋았던 거죠. 만약 그분이 그날 거기 가지 않았다면, 업체 입맛에 맞는 사람 몇 명만 데려다 놓고 그렇게 진행하는 거예요."</div>
     <p class="body-text">이게 구조의 문제라고 했다.</p>
     <div class="q-inline">"주민들에게 피해를 줄 수 있는 사업이라고 하면 당연히 그 피해를 받는 주민들에게 사전 고지는 의무화돼야 된다고 봐요. 근데 그 부분이 너무 열악한 거예요."</div>
-    <div class="q-inline">"지방자치 시대에서 주민들의 권리는 굉장히 중요한 거잖아요. 환경권도 있고요. 저희는 이런 관점에서 보는 시점을 먼저 고쳐야 한다고 봐요. 그렇지 않으면 이게 해결될 수 없거든요."</div>
     <div class="q-inline">"공개도 중요하지만, 공개할 수 있는 그 과정, 루트를 만드는 것도 굉장히 중요하다고 생각해요. 이런 게 들어와 있다, 그러면 면이든 어디든 알려줘서 '너네 지역에 지금 이런 일이 벌어지고 있다' 이렇게요."</div>
   </div>
 
@@ -451,7 +465,6 @@
     <div class="q-inline">"이게 정보공개가 안 됐으면 우리가 못했을 거예요. 업체가 주민들에게 피해를 주지 않는 선에서 제대로 하고 있는지 알아볼 수 있는 문서라면, 그거는 당연히 주민들한테 정보공개를 해주는 게 맞다는 거죠."</div>
     <div class="q-inline">"이런 것들을 계속계속 끊임없이 진행해야 돼요. 모든 게 다 주민들 발품이에요."</div>
     <div class="q-pull">"저도 사실 거의 4년 동안 사생활 다 팽개치고 여기서 봉사 아닌 봉사활동을 하고 있는 거죠. 이게 말이 되냐고요. 근데 월급은 그 사람들이 다 받잖아요. 업자도 돈 벌고. 근데 우리는 왜 이러고 살아야 되냐고."</div>
-    <div class="q-inline">"분명히 사업자가 신청을 했고 시에서 허가를 내줬으면 그 관리 감독까지 모든 걸 시에서 봐야 되는 건데, 왜 우리한테는 자료도 하나도 주지 않으면서 그거는 왜 우리 몫이냐... 이 부분이 너무 화가 나요."</div>
     <p class="body-text">한 가지 더 짚고 싶다고 했다. "시골 사람들은 돈만 보고 그래"라는 말에 대해.</p>
     <div class="q-inline">"제가 와서 보니까 돈을 요구하는 이유가 업체가 이간질을 시키려고 돈을 몇 푼씩 쥐어주는 거예요. 들어가서 보면 다 반대하고 있고 답답해하지만, 본인들이 뭘 해야 할지 모르는 거예요."</div>
   </div>
@@ -494,15 +507,18 @@
     <div class="q-inline">"그럴 때마다 바닥을 보죠. 다른 데는 군수가 저래서 저러고 있다는데... 여기 주민들은 그래도 같이 해주고 있는데... 계속 위를 자꾸 보면 너무 힘들고, 밑을 계속 내려다보면서 '그래도 나아, 이거 좀 낫네' 이러고 다니는 거죠."</div>
     <p class="body-text">인터뷰를 마치면서 마지막으로 이 말을 남겼다.</p>
     <div class="q-pull">"저는 주민 피해 보는 거에 대해서는 그냥 정보공개를 할 수 있게 조례가 전국적으로 좀 만들어줬으면 좋겠어요."</div>
-
   </div>
 
-</div>
+</div><!-- /body -->
 
+<!-- FOOTER CTA -->
 <div class="article-footer">
   <div class="campaign-cta">
-    <span class="cta-text">난개발과 환경오염을 막기 위한 주민 알권리 조례,<br>지금 당장 필요합니다!</span>
-    <a href="https://cfoi1.github.io/weneedlaw" class="cta-btn">내용 살펴보기 →</a>
+    <div>
+      <div class="cta-label">지금 바로 서명하기</div>
+      <div class="cta-text">난개발과 환경오염을 막기 위한<br>주민 알권리 법안, 지금 당장 필요합니다!</div>
+    </div>
+    <a href="https://team-sigol.kr/" class="cta-btn">서명하러 가기 →</a>
   </div>
 </div>
 
