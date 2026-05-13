@@ -97,7 +97,7 @@
   /* ── IMAGES ── */
   .image-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 3px;
     margin: 3px 0;
   }
@@ -105,8 +105,9 @@
   .img-block {
     background: var(--sand);
     overflow: hidden;
-    height: 300px;
   }
+  .img-block.main { height: 440px; }
+  .img-block.side { height: 440px; }
 
   .img-block img {
     width: 100%; height: 100%;
@@ -318,9 +319,31 @@
   .header  { animation: fadeUp 0.5s ease both; }
   .opening { animation: fadeUp 0.5s ease 0.1s both; }
   .body    { animation: fadeUp 0.5s ease 0.2s both; }
+
+  /* ── SITE HEADER IMAGE ── */
+  .site-header-img {
+    width: 100%;
+    max-width: 900px;
+    height: 320px;
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  .site-header-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .site-header-img { height: 200px; }
+  }
+
 </style>
 </head>
 <body>
+
+<div class="site-header-img">
+  <img src="https://drive.google.com/uc?export=view&id=1i_cDoVKwl7kWfkltxJYZL0o3pz2ChKwL" alt="아무리 덮어봐라, 우리가 밝혀내지">
+</div>
 
 <div class="header">
   <div class="kicker">
@@ -336,9 +359,8 @@
 </div>
 
 <div class="image-grid">
-  <div class="img-block"><div class="img-placeholder">사진 1</div></div>
-  <div class="img-block"><div class="img-placeholder">사진 2</div></div>
-  <div class="img-block"><div class="img-placeholder">사진 3</div></div>
+  <div class="img-block main"><img src="https://drive.google.com/uc?export=view&id=1yX-28Uzdn-STCa58syKEwP5srrIW8mOI" alt="고의숙 조순희 님"></div>
+  <div class="img-block side"><img src="https://drive.google.com/uc?export=view&id=1awG6fbpRV9lMphU-hezkFkwI5B_Hyrqb" alt="고의숙 조순희 님 현장"></div>
 </div>
 <p class="img-caption">충남 예산군 신암면 조곡리, 2025년 9월</p>
 
